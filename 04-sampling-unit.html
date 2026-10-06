@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 2 · 4 Sampling unit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div class="top"><button class="btn alt" id="menu" aria-label="Open contents">☰ Contents</button><b>Module 2</b></div>
+<nav class="side" id="side" aria-label="Contents"><div class="brand">Module 2</div><div class="sub">Planning studies, sampling &amp; sample size</div><div id="nav"><a href="index.html"><span class="n">0</span>Overview</a><a href="01-objective.html"><span class="n">1</span>1 Objective</a><a href="02-variables.html"><span class="n">2</span>2 Variables</a><a href="03-measurement.html"><span class="n">3</span>3 Measurement</a><a href="04-sampling-unit.html" class="on" aria-current="page"><span class="n">4</span>4 Sampling unit</a><a href="05-study-design.html"><span class="n">5</span>5 Study design</a><a href="06-sampling-method.html"><span class="n">6</span>6 Sampling method</a><a href="07-sample-size.html"><span class="n">7</span>7 Sample size</a><a href="08-evaluation.html"><span class="n">8</span>8 Evaluation</a><a href="09-exercise.html"><span class="n">9</span>9 Exercise</a><a href="10-further-reading.html"><span class="n">10</span>Further reading</a></div></nav>
+<main>
+<section id="s4">
+ <div class="kick">Step 4</div><h2>4. Target population and sampling unit</h2>
+ <h3>Target population</h3>
+ <p>The <b>target population</b> is the group of animals, farms or other units you want to draw conclusions about. Define it before you choose anything else, because it sets who can be sampled and to whom the results apply. Name the type of unit, the place and the time period.</p>
+ <div class="tip"><b>Examples</b>All lactating dairy cows in District A in November 2026.<br>All dairy farms in three districts of Chiang Mai Province.</div>
+ <p>The sample is the part of the target population that you actually select and study.</p>
+ <h3>Sampling unit: what exactly are we selecting?</h3>
+ <p>Veterinary data are hierarchical. Cows live in herds; herds sit in villages; one cow can give many samples. You must keep the levels apart.</p>
+ <div class="tw"><table><tr><th>Term</th><th>Meaning</th><th>Example</th></tr>
+ <tr><td>Sampling unit</td><td>Entity selected during sampling</td><td>Farm, cow or pen</td></tr>
+ <tr><td>Observation unit</td><td>Entity on which information is recorded</td><td>Individual cow</td></tr>
+ <tr><td>Specimen</td><td>Biological material collected</td><td>Blood or milk sample</td></tr>
+ <tr><td>Experimental unit</td><td>Entity independently assigned an intervention</td><td>Pen assigned a feed treatment</td></tr></table></div>
+ <figure><img src="fig_units.png" alt="Hierarchy of units: farms in villages, pens in farms, cows in pens, specimens from cows" loading="lazy"><figcaption>Figure 3. The hierarchy of units in veterinary data. Farms sit in villages, pens in farms, cows in pens, and several specimens can come from one cow. Name the level you are selecting, recording on, and analysing.</figcaption></figure>
+ <div class="warn"><b>Important teaching point</b>Ten blood tubes from one cow are not ten independent animals. Similarly, 100 cows from one farm do not give the same information as 100 cows spread across many farms. Treating repeated or clustered measurements as independent is called <b style="display:inline">pseudoreplication</b>. It makes confidence intervals too narrow and p-values too small.</div>
+ <h3>Which unit?</h3><div id="q4"></div>
+</section>
+<div class="pn"><a href="03-measurement.html">← 3 Measurement</a><a href="05-study-design.html">5 Study design →</a></div>
+</main>
+<script src="app.js"></script>
+<script>
+quiz('q4',[
+ {q:'A study wants to draw conclusions about all dairy farms in three districts. Those farms together are the…',o:['Target population','Sampling unit','Specimen'],a:0,w:'The target population is the whole group you want to make conclusions about. The farms you actually select form the sample.'},
+ {q:'Feed treatments are assigned to pens; blood is taken from every cow. What is the experimental unit?',o:['The cow','The pen','The blood sample'],a:1,w:'The experimental unit is where the intervention is independently assigned.'},
+ {q:'You survey 100 farms and record disease on each. The sampling unit is…',o:['The cow','The farm','The village'],a:1,w:'The entity selected is the farm.'},
+ {q:'Ten tubes from one cow analysed as ten independent animals is called…',o:['Confounding','Pseudoreplication','Stratification'],a:1,w:'It makes CIs too narrow and p-values too small.'}]);
+
+</script>
+</body></html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 2 · 2 Variables</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div class="top"><button class="btn alt" id="menu" aria-label="Open contents">☰ Contents</button><b>Module 2</b></div>
+<nav class="side" id="side" aria-label="Contents"><div class="brand">Module 2</div><div class="sub">Planning studies, sampling &amp; sample size</div><div id="nav"><a href="index.html"><span class="n">0</span>Overview</a><a href="01-objective.html"><span class="n">1</span>1 Objective</a><a href="02-variables.html" class="on" aria-current="page"><span class="n">2</span>2 Variables</a><a href="03-measurement.html"><span class="n">3</span>3 Measurement</a><a href="04-sampling-unit.html"><span class="n">4</span>4 Sampling unit</a><a href="05-study-design.html"><span class="n">5</span>5 Study design</a><a href="06-sampling-method.html"><span class="n">6</span>6 Sampling method</a><a href="07-sample-size.html"><span class="n">7</span>7 Sample size</a><a href="08-evaluation.html"><span class="n">8</span>8 Evaluation</a><a href="09-exercise.html"><span class="n">9</span>9 Exercise</a><a href="10-further-reading.html"><span class="n">10</span>Further reading</a></div></nav>
+<main>
+<section id="s2">
+ <div class="kick">Step 2</div><h2>2. Dependent and independent variables</h2>
+ <p>Name the variables inside the objective. Every analytical objective has at least one <b>dependent variable</b> (outcome) and one <b>independent variable</b> (exposure). Other variables, <b>confounders</b>, can distort the link.</p>
+ <svg viewBox="0 0 560 90" width="100%" role="img" aria-label="Independent variable X influences dependent variable Y" style="max-width:560px"><rect x="20" y="20" width="190" height="50" rx="10" fill="var(--accent-soft)" stroke="var(--accent)"/><text x="115" y="50" text-anchor="middle" font-size="14">Independent (X)</text><rect x="350" y="20" width="190" height="50" rx="10" fill="var(--warn-soft)" stroke="var(--warn)"/><text x="445" y="50" text-anchor="middle" font-size="14">Dependent (Y)</text><path d="M212 45H346" stroke="var(--ink)" stroke-width="2"/><path d="M346 45l-9-5v10z" fill="var(--ink)"/></svg>
+ <div class="tw"><table><tr><th>Term</th><th>Also called</th><th>Colostrum example</th></tr>
+ <tr><td>Dependent (Y)</td><td>Outcome, response</td><td>Diarrhoea in first 30 days (yes/no)</td></tr>
+ <tr><td>Independent (X)</td><td>Exposure, predictor, risk factor, treatment</td><td>Colostrum intake (adequate / inadequate)</td></tr>
+ <tr><td>Confounder</td><td>Confounding variable</td><td>Dam parity</td></tr></table></div>
+ <div class="tip"><b>A quick test</b>“Does the value of A depend on B?” If yes, A is dependent. Time order helps: X usually comes first. In a case-control study animals are chosen by outcome, but the outcome is still the dependent variable.</div>
+ <h3 id="s2-2">2.2 Confounding</h3>
+ <figure><img src="fig_confounding.png" alt="Confounding: dam parity is linked to colostrum intake and causes or predicts calf diarrhoea" loading="lazy"><figcaption>Figure 2. Confounding. Dam parity affects both colostrum supply and calf diarrhoea risk, so it can distort the colostrum–diarrhoea association.</figcaption></figure>
+ <p>A confounder must satisfy <b>all three</b> conditions:</p>
+ <ol><li>It is associated with the exposure (X) in the study population.</li><li>It is a cause of the outcome (Y), or a marker of a cause, even among the unexposed.</li><li>It is not on the causal pathway between X and Y.</li></ol>
+ <p><i>Example.</i> First-calf heifers produce less colostrum (link to X), and their calves are at higher risk of diarrhoea for other reasons (link to Y). If heifer calves are over-represented in the inadequate group, part of the “colostrum effect” may be a parity effect.</p>
+ <h3>Is it a confounder?</h3><div id="q2a"></div>
+ <h3>How to control confounding</h3>
+ <div class="tw"><table><tr><th>Stage</th><th>Method</th><th>How it works</th><th>Example</th></tr>
+ <tr><td>Design</td><td>Randomisation</td><td>Balances known and unknown confounders on average</td><td>Randomly assign calves to feeding protocols</td></tr>
+ <tr><td>Design</td><td>Restriction</td><td>Enrol only one level of the confounder</td><td>Only calves of multiparous cows</td></tr>
+ <tr><td>Design</td><td>Matching</td><td>Make groups similar on the confounder</td><td>Match each case dog to a control of same breed and age</td></tr>
+ <tr><td>Analysis</td><td>Stratification</td><td>Analyse within levels; combine with Mantel–Haenszel</td><td>Age-stratified OR (Section 8.4)</td></tr>
+ <tr><td>Analysis</td><td>Multivariable regression</td><td>Include the confounder as a covariate</td><td>Logistic regression</td></tr></table></div>
+ <p>Confounders can only be controlled if they are measured: list them at the planning stage.</p>
+ <h3>2.3 Identify the variables</h3>
+ <div class="tw"><table><tr><th>Objective</th><th>Dependent (Y)</th><th>Independent (X)</th><th>Possible confounder</th></tr>
+ <tr><td>Estimate mastitis prevalence in District A</td><td>Mastitis (binary)</td><td>None – descriptive</td><td>–</td></tr>
+ <tr><td>Compare 30-day diarrhoea risk by colostrum</td><td>Diarrhoea (binary)</td><td>Colostrum (binary)</td><td>Dam parity, birth season, hygiene</td></tr>
+ <tr><td>Compare milk yield between two feeding programmes</td><td>Milk yield kg/day</td><td>Feeding programme</td><td>Parity, days in milk</td></tr>
+ <tr><td>Feed exposure in dogs with/without a rare disease</td><td>Disease (binary)</td><td>Feed type</td><td>Breed, age</td></tr>
+ <tr><td>Herd size and time to first FMD outbreak</td><td>Days to outbreak</td><td>Herd size</td><td>Animal movements, vaccination</td></tr></table></div>
+ <h3>Self-check 2 · game</h3><div id="q2b"></div>
+</section>
+<div class="pn"><a href="01-objective.html">← 1 Objective</a><a href="03-measurement.html">3 Measurement →</a></div>
+</main>
+<script src="app.js"></script>
+<script>
+quiz('q2a',[
+ {q:'Objective: effect of colostrum on calf diarrhoea. Is dam parity (heifer vs older cow) a possible confounder?',o:['Yes – linked to colostrum supply and to diarrhoea risk, and not caused by colostrum','No – it is on the causal pathway','No – it is not related to either'],a:0,w:'It meets all three conditions.'},
+ {q:'Effect of a dairy ration on milk yield. Is “rumen pH” (changed by the ration, and lowers yield) a confounder?',o:['Yes','No – it lies on the causal pathway from ration to yield'],a:1,w:'A consequence of the exposure is a mediator, not a confounder; do not adjust for it as one.'},
+ {q:'Which method controls confounding at the design stage?',o:['Stratification with Mantel–Haenszel','Multivariable regression','Matching or restriction'],a:2,w:'Randomisation, restriction and matching are design methods; the other two are analysis methods.'}]);
+quiz('q2b',[
+ {q:'Objective: “To compare the risk of lameness in cows housed on concrete vs. rubber flooring.” What is the dependent variable (Y)?',o:['Flooring type','Lameness','Farm size'],a:1,w:'The outcome we measure is lameness.'},
+ {q:'What is the independent variable (X)?',o:['Flooring type','Lameness','Hoof-care routine'],a:0,w:'Flooring is the exposure whose effect we want to compare.'},
+ {q:'Which is the best possible confounder?',o:['Farm size – larger farms more often have rubber flooring and differ in hoof-care routines that affect lameness','Number of lame cows – it is the outcome itself','Floor type – it is the exposure'],a:0,w:'It is linked to X, a cause of Y, and not caused by flooring. The other two are the outcome and the exposure themselves.'}]);
+
+</script>
+</body></html>

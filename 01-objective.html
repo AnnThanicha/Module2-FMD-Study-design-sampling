@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 2 · 1 Objective</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div class="top"><button class="btn alt" id="menu" aria-label="Open contents">☰ Contents</button><b>Module 2</b></div>
+<nav class="side" id="side" aria-label="Contents"><div class="brand">Module 2</div><div class="sub">Planning studies, sampling &amp; sample size</div><div id="nav"><a href="index.html"><span class="n">0</span>Overview</a><a href="01-objective.html" class="on" aria-current="page"><span class="n">1</span>1 Objective</a><a href="02-variables.html"><span class="n">2</span>2 Variables</a><a href="03-measurement.html"><span class="n">3</span>3 Measurement</a><a href="04-sampling-unit.html"><span class="n">4</span>4 Sampling unit</a><a href="05-study-design.html"><span class="n">5</span>5 Study design</a><a href="06-sampling-method.html"><span class="n">6</span>6 Sampling method</a><a href="07-sample-size.html"><span class="n">7</span>7 Sample size</a><a href="08-evaluation.html"><span class="n">8</span>8 Evaluation</a><a href="09-exercise.html"><span class="n">9</span>9 Exercise</a><a href="10-further-reading.html"><span class="n">10</span>Further reading</a></div></nav>
+<main>
+<section id="s1">
+ <div class="kick">Step 1</div><h2>1. The study objective</h2>
+ <p>A study objective is the single question the study is built to answer. It drives every later choice: who you sample, what you measure, how many animals you need and which analysis you run.</p>
+ <h3>Build an objective</h3>
+ <p>Start from the weak objective “To study mastitis.” Switch on each element and watch the objective become workable.</p>
+ <div class="card"><div class="tabs" id="ob_chips"></div>
+  <p style="font-size:19px;font-family:'Source Serif 4',serif;margin:8px 0" id="ob_text"></p>
+  <div class="bar" style="margin:6px 0"><i id="ob_bar"></i></div><span class="score" id="ob_s"></span></div>
+ <h3>1.1 Estimate, compare or detect?</h3>
+ <div class="tw"><table><tr><th>Purpose</th><th>Question</th><th>Example</th><th>Drives sample size</th></tr>
+ <tr><td>Estimate</td><td>How much or how common?</td><td>Proportion of lactating cows with mastitis</td><td>Precision and confidence</td></tr>
+ <tr><td>Compare / association</td><td>Do groups differ?</td><td>Is calf diarrhoea more frequent with inadequate colostrum?</td><td>Minimum important difference, α and power</td></tr>
+ <tr><td>Detect infection</td><td>Would we detect infection if present at a set level?</td><td>Cattle to test to support herd freedom</td><td>Design prevalence, test sensitivity, confidence</td></tr></table></div>
+ <div class="tip"><b>Tips</b>Use an action verb that matches the purpose. Keep one primary objective (sample size is calculated for it). Write it so a colleague could design the same study from it.</div>
+ <h3>Check yourself</h3><div id="q1"></div>
+ <h3>Self-check 1 · game</h3><div id="q1b"></div>
+</section>
+<div class="pn"><a href="index.html">← Overview</a><a href="02-variables.html">2 Variables →</a></div>
+</main>
+<script src="app.js"></script>
+<script>
+/* 1 objective builder */
+const OB=[['Action verb','verb'],['Population','pop'],['Outcome','out'],['Location','loc'],['Time period','time'],['Precision','prec']];
+const obOn={};
+function obRender(){const o=obOn;const verb=o.verb?'To estimate the prevalence of':'To study';
+ const t=`${verb} ${o.out?'clinical or subclinical mastitis':'mastitis'}${o.pop?' among lactating dairy cows':''}${o.loc?' in District A':''}${o.time?' during November 2026':''}${o.prec?', with 95% confidence and a precision of ±5 percentage points':''}.`;
+ $('#ob_text').innerHTML=t.replace(/(clinical or subclinical|among lactating dairy cows|in District A|during November 2026|, with 95% confidence and a precision of ±5 percentage points|To estimate the prevalence of)/g,'<span class="mark">$1</span>');
+ const n=Object.values(o).filter(Boolean).length;$('#ob_bar').style.width=n/6*100+'%';$('#ob_s').textContent=n+' of 6 elements named'+(n===6?' – an objective a colleague could design from.':n===0?' – impossible to calculate a sample size from.':'.')}
+$('#ob_chips').innerHTML=OB.map(([t,k])=>`<button class="chip" aria-pressed="false" data-k="${k}">${t}</button>`).join('');
+$('#ob_chips').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;const k=b.dataset.k;obOn[k]=!obOn[k];b.setAttribute('aria-pressed',!!obOn[k]);obRender()};obRender();
+
+
+quiz('q1',[
+ {q:'Which objective can you calculate a sample size from?',o:['To study mastitis in dairy cows.','To estimate the prevalence of mastitis in lactating cows in District A in November, with 95% confidence and ±5 points.','To investigate risk factors for udder health.'],a:1,w:'Only the second names population, outcome, place, time and precision.'},
+ {q:'A study asks how many cattle must be tested to support herd freedom. Which purpose is this?',o:['Estimate','Compare','Detect infection'],a:2,w:'Detection depends on design prevalence, test sensitivity and confidence.'},
+ {q:'Which drives sample size in a comparison study?',o:['Margin of error only','Minimum important difference, α and power','Test sensitivity only'],a:1,w:'Comparisons need an effect size and power.'}]);
+quiz('q1b',[
+ {q:'Which is the best estimation objective for “To investigate brucellosis in goats”?',o:['To study goats and brucellosis in Thailand.','To estimate the seroprevalence of Brucella melitensis in adult goats in Province X between January and March 2027, with 95% confidence and ±4 percentage points precision.','To compare brucellosis between goats and sheep.'],a:1,w:'It names population, outcome, place, time and precision, and uses the verb “estimate”.'},
+ {q:'Which element is still missing from: “To estimate the seroprevalence of Brucella melitensis in adult goats in Province X with 95% confidence and ±4 points precision”?',o:['Population','Time period','Precision'],a:1,w:'Without a time period, the colleague cannot repeat the study for the same season or year.'},
+ {q:'Which verb best fits an objective about showing that a herd is free of infection?',o:['To describe','To demonstrate freedom from','To explore'],a:1,w:'The verb should match the purpose: estimate, compare, determine whether, demonstrate freedom from.'}]);
+
+</script>
+</body></html>

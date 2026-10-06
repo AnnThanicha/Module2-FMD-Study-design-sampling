@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 2 · 3 Measurement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div class="top"><button class="btn alt" id="menu" aria-label="Open contents">☰ Contents</button><b>Module 2</b></div>
+<nav class="side" id="side" aria-label="Contents"><div class="brand">Module 2</div><div class="sub">Planning studies, sampling &amp; sample size</div><div id="nav"><a href="index.html"><span class="n">0</span>Overview</a><a href="01-objective.html"><span class="n">1</span>1 Objective</a><a href="02-variables.html"><span class="n">2</span>2 Variables</a><a href="03-measurement.html" class="on" aria-current="page"><span class="n">3</span>3 Measurement</a><a href="04-sampling-unit.html"><span class="n">4</span>4 Sampling unit</a><a href="05-study-design.html"><span class="n">5</span>5 Study design</a><a href="06-sampling-method.html"><span class="n">6</span>6 Sampling method</a><a href="07-sample-size.html"><span class="n">7</span>7 Sample size</a><a href="08-evaluation.html"><span class="n">8</span>8 Evaluation</a><a href="09-exercise.html"><span class="n">9</span>9 Exercise</a><a href="10-further-reading.html"><span class="n">10</span>Further reading</a></div></nav>
+<main>
+<section id="s3">
+ <div class="kick">Step 3</div><h2>3. Measurement: what will we record?</h2>
+ <p>An operational definition states exactly how a variable is measured, precisely enough that two investigators record the same value for the same animal.</p>
+ <h3>3.1 Six variable types</h3>
+ <div class="tw"><table><tr><th>Type</th><th>Example</th><th>Summary</th><th>Typical test / model</th></tr>
+ <tr><td>Continuous</td><td>Milk yield, kg/day</td><td>Mean &amp; SD (or median &amp; IQR)</td><td>t-test, ANOVA, linear regression</td></tr>
+ <tr><td>Binary</td><td>Infection yes/no</td><td>Proportion</td><td>Chi-square, logistic regression</td></tr>
+ <tr><td>Nominal</td><td>Breed</td><td>Number &amp; % per category</td><td>Chi-square</td></tr>
+ <tr><td>Ordinal</td><td>Body condition score</td><td>Ordered distribution, median</td><td>Rank tests, ordinal regression</td></tr>
+ <tr><td>Count</td><td>Diarrhoea episodes</td><td>Count distribution, rate</td><td>Poisson / negative binomial</td></tr>
+ <tr><td>Time-to-event</td><td>Days until first episode</td><td>Survival probabilities</td><td>Kaplan–Meier, Cox</td></tr></table></div>
+ <h3>Classify the variable</h3>
+ <div class="card" id="vt"></div>
+ <div class="tip"><b>Example case definition</b>“A calf with faecal score ≥3 on a specified four-point scale, at any scheduled assessment during its first 30 days of life.” Also state the scoring instructions, who scores, and how often: daily scoring finds more short episodes than weekly scoring.</div>
+ <div class="warn"><b>Avoid information loss</b>Record variables in their richest form. You can turn milk yield into “high/low” later, but you cannot recover kg/day from a yes/no field. Dichotomising also reduces power.</div>
+</section>
+<div class="pn"><a href="02-variables.html">← 2 Variables</a><a href="04-sampling-unit.html">4 Sampling unit →</a></div>
+</main>
+<script src="app.js"></script>
+<script>
+/* variable types */
+const VT=[['Body weight of a calf at birth (kg)','Continuous'],['Pregnancy status (pregnant / not pregnant)','Binary'],['Coat colour (black, brown, white, mixed)','Nominal'],['Lameness score (1 = sound … 5 = severely lame)','Ordinal'],['Number of ticks counted on one animal','Count'],['Days from birth until a calf dies or leaves the herd','Time-to-event'],['Rectal temperature (°C)','Continuous'],['Vaccinated against FMD (yes / no)','Binary'],['District where the farm is located','Nominal'],['Faecal consistency (watery, soft, normal, firm)','Ordinal'],['Number of mastitis cases per cow per year','Count'],['Days from first service until conception, with some cows not yet pregnant at study end','Time-to-event']];
+const TYPES=['Continuous','Binary','Nominal','Ordinal','Count','Time-to-event'];
+function vtDraw(){$('#vt').innerHTML=VT.map(([v,t],i)=>`<div class="row" style="margin-bottom:8px"><div style="flex:2 1 220px"><b>${v}</b></div><div><select data-i="${i}" aria-label="${v}"><option value="">choose…</option>${TYPES.map(x=>`<option>${x}</option>`).join('')}</select></div><div class="vf" style="flex:1 1 90px"></div></div>`).join('')+'<button class="rs" type="button" id="vt_rs">↺ Reset</button> <span class="score" id="vt_s"></span>'}
+vtDraw();
+$('#vt').addEventListener('change',e=>{const s=e.target;if(s.tagName!=='SELECT')return;const f=s.closest('.row').querySelector('.vf');const ok=s.value===VT[+s.dataset.i][1];f.textContent=ok?'✓ correct':(s.value?'✗ try again':'');f.style.color=ok?'var(--good)':'var(--bad)';s.dataset.ok=ok?1:0;const n=$$('#vt select').filter(x=>x.dataset.ok==='1').length;$('#vt_s').textContent=`${n} of ${VT.length} correct`});
+$('#vt').addEventListener('click',e=>{if(e.target.id==='vt_rs')vtDraw()});
+
+</script>
+</body></html>

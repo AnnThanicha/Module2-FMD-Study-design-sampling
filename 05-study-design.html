@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 2 · 5 Study design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div class="top"><button class="btn alt" id="menu" aria-label="Open contents">☰ Contents</button><b>Module 2</b></div>
+<nav class="side" id="side" aria-label="Contents"><div class="brand">Module 2</div><div class="sub">Planning studies, sampling &amp; sample size</div><div id="nav"><a href="index.html"><span class="n">0</span>Overview</a><a href="01-objective.html"><span class="n">1</span>1 Objective</a><a href="02-variables.html"><span class="n">2</span>2 Variables</a><a href="03-measurement.html"><span class="n">3</span>3 Measurement</a><a href="04-sampling-unit.html"><span class="n">4</span>4 Sampling unit</a><a href="05-study-design.html" class="on" aria-current="page"><span class="n">5</span>5 Study design</a><a href="06-sampling-method.html"><span class="n">6</span>6 Sampling method</a><a href="07-sample-size.html"><span class="n">7</span>7 Sample size</a><a href="08-evaluation.html"><span class="n">8</span>8 Evaluation</a><a href="09-exercise.html"><span class="n">9</span>9 Exercise</a><a href="10-further-reading.html"><span class="n">10</span>Further reading</a></div></nav>
+<main>
+<section id="s5">
+ <div class="kick">Step 5</div><h2>5. Study design: how will we answer it?</h2>
+ <p>The defining feature of a design is how animals are selected and followed, not whether the data are old or new.</p>
+ <div class="tw"><table><tr><th>Design</th><th>How animals are selected / followed</th><th>Main measure</th></tr>
+ <tr><td>Cross-sectional</td><td>Assess a population at one time</td><td>Prevalence; prevalence OR</td></tr>
+ <tr><td>Case-control</td><td>Select cases and controls, compare prior exposure</td><td>Odds ratio</td></tr>
+ <tr><td>Cohort</td><td>Classify exposure, follow for later disease</td><td>Risk, rate, RR</td></tr>
+ <tr><td>Randomised trial</td><td>Randomly assign intervention, compare outcomes</td><td>RR, risk difference</td></tr></table></div>
+ <h3>Timing of the designs</h3>
+ <svg viewBox="0 0 600 220" width="100%" role="img" aria-label="Timeline of study designs" style="max-width:640px">
+  <line x1="300" y1="10" x2="300" y2="205" stroke="var(--muted)" stroke-dasharray="4 4"/><text x="306" y="22" font-size="12" fill="var(--muted)" style="fill:var(--muted)">Start of study</text>
+  <text x="20" y="18" font-size="12" style="fill:var(--muted)">← past</text><text x="540" y="18" font-size="12" style="fill:var(--muted)">future →</text>
+  <text x="20" y="62" font-size="13" font-weight="600">Cross-sectional</text><circle cx="300" cy="55" r="9" fill="var(--sel)"/><text x="316" y="60" font-size="12">exposure and outcome together</text>
+  <text x="20" y="117" font-size="13" font-weight="600">Case-control</text><circle cx="300" cy="110" r="9" fill="var(--sel)"/><path d="M290 110H150" stroke="var(--s2)" stroke-width="3"/><path d="M150 110l9-5v10z" fill="var(--s2)"/><text x="130" y="140" font-size="12">look back at exposure</text><text x="316" y="115" font-size="12">choose by outcome</text>
+  <text x="20" y="182" font-size="13" font-weight="600">Cohort / trial</text><circle cx="300" cy="175" r="9" fill="var(--sel)"/><path d="M310 175H470" stroke="var(--s2)" stroke-width="3"/><path d="M470 175l-9-5v10z" fill="var(--s2)"/><text x="316" y="200" font-size="12">choose by exposure, follow to outcome</text></svg>
+ <h3>5.1 Strengths and limitations</h3>
+ <div class="tw"><table><tr><th>Design</th><th>Strengths</th><th>Limitations</th></tr>
+ <tr><td>Cross-sectional</td><td>Quick, cheap; direct prevalence; many exposures at once</td><td>Cannot show what came first; favours long-lasting cases</td></tr>
+ <tr><td>Case-control</td><td>Efficient for rare diseases; few animals</td><td>No direct risk or prevalence; recall and selection bias</td></tr>
+ <tr><td>Cohort</td><td>Exposure measured before disease; gives risk and rate</td><td>Slow, costly for rare outcomes; loss to follow-up</td></tr>
+ <tr><td>Randomised trial</td><td>Balances known and unknown confounders; strongest causal evidence</td><td>Costly; ethical limits; may not generalise</td></tr></table></div>
+ <p>A retrospective study is not automatically case-control. Following calves from birth (exposure) to later disease using old records is a <i>retrospective cohort</i>; it is case-control only if you select animals by disease status.</p>
+ <h3>Choose a design</h3>
+ <div class="card"><label for="dz">What describes your situation?</label>
+ <select id="dz"><option value="0">I need prevalence now</option><option value="1">Disease is rare, exposure is common</option><option value="2">Exposure is rare, outcome fairly common, timing matters</option><option value="3">I can assign a treatment or management change</option></select>
+ <div class="res" id="dzr" aria-live="polite"></div></div>
+ <div id="q5"></div>
+</section>
+<div class="pn"><a href="04-sampling-unit.html">← 4 Sampling unit</a><a href="06-sampling-method.html">6 Sampling method →</a></div>
+</main>
+<script src="app.js"></script>
+<script>
+/* 5 design chooser */
+const DZ=[['Cross-sectional','Assess the population once. Gives prevalence now; cannot show which came first.'],['Case-control','Efficient when disease is rare: select cases and controls, compare prior exposure. Measure: odds ratio.'],['Cohort','Classify exposure, follow forward for disease. Gives risk, rate and RR; slow if the outcome is rare.'],['Randomised trial','Randomly assign the intervention. Strongest causal evidence; costly with ethical limits.']];
+const dz=()=>{const d=DZ[+$('#dz').value];$('#dzr').innerHTML=`<b>${d[0]}</b><br>${d[1]}`};$('#dz').onchange=dz;dz();
+
+quiz('q5',[
+ {q:'Old farm records are used to follow calves from birth (colostrum) to disease. This is…',o:['Case-control','Retrospective cohort','Cross-sectional'],a:1,w:'Selection by exposure and following forward = cohort, even with old data.'},
+ {q:'A weakness of case-control studies is…',o:['They need very many animals','They cannot give risk or prevalence directly','They cannot study rare diseases'],a:1,w:'Investigators fix the numbers of cases and controls.'}]);
+
+</script>
+</body></html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 2 · 6 Sampling method</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div class="top"><button class="btn alt" id="menu" aria-label="Open contents">☰ Contents</button><b>Module 2</b></div>
+<nav class="side" id="side" aria-label="Contents"><div class="brand">Module 2</div><div class="sub">Planning studies, sampling &amp; sample size</div><div id="nav"><a href="index.html"><span class="n">0</span>Overview</a><a href="01-objective.html"><span class="n">1</span>1 Objective</a><a href="02-variables.html"><span class="n">2</span>2 Variables</a><a href="03-measurement.html"><span class="n">3</span>3 Measurement</a><a href="04-sampling-unit.html"><span class="n">4</span>4 Sampling unit</a><a href="05-study-design.html"><span class="n">5</span>5 Study design</a><a href="06-sampling-method.html" class="on" aria-current="page"><span class="n">6</span>6 Sampling method</a><a href="07-sample-size.html"><span class="n">7</span>7 Sample size</a><a href="08-evaluation.html"><span class="n">8</span>8 Evaluation</a><a href="09-exercise.html"><span class="n">9</span>9 Exercise</a><a href="10-further-reading.html"><span class="n">10</span>Further reading</a></div></nav>
+<main>
+<section id="s6">
+ <div class="kick">Step 6</div><h2>6. Sampling method</h2>
+ <p>The target population is the group you want to make conclusions about. The sampling method is how you select units from it.</p>
+ <h3>6.1 Six sampling methods</h3>
+ <div class="tw"><table><tr><th>Method</th><th>How it works</th><th>Main consideration</th><th>When to use</th></tr>
+ <tr><td>Simple random</td><td>Randomly select units from the full list</td><td>Requires a suitable list</td><td>Small, well-listed populations</td></tr>
+ <tr><td>Systematic</td><td>Random start, then every k-th unit</td><td>Avoid patterns related to disease</td><td>Animals in a milking line, records in order</td></tr>
+ <tr><td>Stratified</td><td>Sample separately within defined groups</td><td>Account for selection fractions</td><td>Groups differ (herd size, district)</td></tr>
+ <tr><td>Cluster</td><td>Select groups, assess all or many units within them</td><td>Within-group similarity</td><td>No animal list, but a farm list exists</td></tr>
+ <tr><td>Multistage</td><td>Sample groups, then units within groups</td><td>Account for both stages</td><td>Large regional surveys</td></tr>
+ <tr><td>Convenience</td><td>Select easily available units</td><td>Limited representativeness</td><td>Pilot studies only</td></tr></table></div>
+ <figure><img src="fig_sampling.png" alt="Six sampling methods illustrated with selected and unselected units" loading="lazy"><figcaption>Figure 5. The six sampling methods. Each dot is one unit (for example, a farm or an animal). Dark dots are the units selected for the sample.</figcaption></figure>
+ <div id="q6"></div>
+</section>
+<div class="pn"><a href="05-study-design.html">← 5 Study design</a><a href="07-sample-size.html">7 Sample size →</a></div>
+</main>
+<script src="app.js"></script>
+<script>
+quiz('q6',[
+ {q:'No list of animals exists but a farm list does. Which method fits?',o:['Simple random of animals','Cluster sampling','Convenience'],a:1,w:'Select farms, then assess animals within them.'},
+  {q:'A district has 600 small and 400 large farms. You sample 100 farms: 50 small and 50 large (equal allocation). What must you do to estimate the proportion of diseased farms for the whole district?',o:['Nothing – equal allocation is always representative of the district','Give each small farm more weight than each large farm (sampling weights), because small farms are 60% of the district but only 50% of the sample','Repeat the sample using systematic sampling'],a:1,w:'Small farms are under-represented (50% of the sample vs 60% of the district), so weights are needed. With proportional allocation (60 + 40) no weights are needed.'},
+ {q:'Systematic sampling of every 10th stall is next to the water trough. Risk?',o:['Periodicity bias','Pseudoreplication','None'],a:0,w:'Patterns in the list that match k can bias the sample.'}]);
+
+</script>
+</body></html>

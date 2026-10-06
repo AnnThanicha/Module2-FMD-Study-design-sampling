@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 2 Exercise – Answers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f6f2;--surface:#fff;--ink:#1d2421;--muted:#5d6762;--line:#dcdad2;--accent:#0f6b5c;--accent-soft:#e1f0ec;--warn:#9a5b00;--warn-soft:#fbf0dc;--good:#1f7a43;--good-soft:#e2f3e8;--bad:#b3362b;}
+@media (prefers-color-scheme:dark){:root{--bg:#151a18;--surface:#1e2522;--ink:#e8ece9;--muted:#9aa6a0;--line:#33403a;--accent:#4fc2ab;--accent-soft:#1d3a33;--warn:#e6b15c;--warn-soft:#3a2f17;--good:#6bcf8f;--good-soft:#1b3326;--bad:#f08a80;}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:'Source Serif 4',Georgia,serif;font-weight:600;line-height:1.2;margin:0}
+h1{font-size:clamp(28px,5vw,42px)} h2{font-size:clamp(22px,3.4vw,28px);margin-bottom:10px} h3{font-size:18px;margin:22px 0 8px}
+p{margin:0 0 12px} a{color:var(--accent)}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px 80px}
+header{padding:44px 0 18px}
+.kick{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:6px}
+.lead{font-size:17px;color:var(--muted)}
+nav.chips{position:sticky;top:0;z-index:5;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px}
+nav.chips a{padding:4px 12px;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:14px;color:var(--ink);background:var(--surface)}
+nav.chips a:hover{background:var(--accent-soft)}
+section{padding:38px 0 14px;border-bottom:1px solid var(--line)}
+.q{background:var(--accent-soft);border-radius:10px;padding:10px 14px;margin:0 0 14px;font-size:15px}
+.q b{color:var(--accent)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:14px 0}
+.card h4{margin:0 0 6px;font-size:15px}
+.note,.warn,.good{border-radius:10px;padding:12px 14px;margin:14px 0;border-left:4px solid var(--accent);background:var(--accent-soft)}
+.warn{border-color:var(--warn);background:var(--warn-soft)} .good{border-color:var(--good);background:var(--good-soft)}
+.note b:first-child,.warn b:first-child,.good b:first-child{display:block;margin-bottom:2px}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:14.5px;margin:10px 0}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top} th{background:var(--accent-soft)}
+td.sig{font-weight:700;color:var(--accent)} tr.hl td{background:var(--accent-soft)}
+.m{color:var(--muted);font-size:13px}
+.f{font-family:'Source Serif 4',Georgia,serif;font-size:17px;background:var(--surface);border:1px dashed var(--line);border-radius:10px;padding:10px 14px;margin:10px 0;overflow-x:auto}
+.f div{margin:3px 0;white-space:nowrap}
+ul,ol{margin:0 0 12px;padding-left:22px} li{margin:3px 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.two{grid-template-columns:1fr}}
+.t2 td,.t2 th{text-align:center} .t2 td:first-child,.t2 th:first-child{text-align:left}
+footer{padding:26px 0;color:var(--muted);font-size:14px}
+@media print{nav.chips{display:none}section{break-inside:avoid-page}body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kick">Module 2 · Exercise answers</div>
+  <h1>Risk factors for foot and mouth disease outbreaks in dairy farms</h1>
+  <p class="lead">Model answers for Section 9, Tasks 1–8. Paper: Sansamur et al. 2020, <i>Animals</i> 10(3):512. Data: Dairy_sim.xlsx (450 farms: 165 outbreak farms, 285 non-outbreak farms).</p>
+  <div class="warn"><b>Note to students</b>
+    <ul>
+      <li><b style="display:inline">Use these answers as a guideline.</b> They show one way to reach the answer. Other reasonable answers are also correct.</li>
+      <li>Your calculations may be a little different from the numbers here because of <b style="display:inline">decimals and rounding</b> (for example 1–3 farms in sample size, or the second decimal of an OR or CI, or a different calculator). This is fine if your method is correct.</li>
+      <li>The dataset is simulated, so its results differ from the paper. Tasks 5, 7 and 7B use the dataset. Tasks 1–4 and 6 use the paper.</li>
+    </ul>
+  </div>
+</header>
+
+<nav class="chips" aria-label="Tasks">
+  <a href="#t1">Task 1</a><a href="#t2">Task 2</a><a href="#t3">Task 3</a><a href="#t4">Task 4</a><a href="#t5">Task 5</a><a href="#t6">Task 6</a><a href="#t7">Task 7</a><a href="#t7b">Task 7B</a><a href="#t8">Task 8</a>
+</nav>
+
+<!-- TASK 1 -->
+<section id="t1">
+  <h2>Task 1. Objective of the study</h2>
+  <div class="q"><b>Question:</b> Write the objective of this study, including the population, outcome, place, time period and comparison (Section 1.1).</div>
+  <div class="card">
+    <h4>Model objective</h4>
+    <p>“To quantify the farm-level risk factors associated with FMD outbreaks in dairy farms registered in Mae On, San Kamphaeng and San Sai districts, Chiang Mai Province, northern Thailand, in 2016, by comparing outbreak farms with non-outbreak farms, using odds ratios with 95% confidence intervals.”</p>
+  </div>
+  <div class="tw"><table>
+    <tr><th style="width:26%">Element</th><th>In the paper</th></tr>
+    <tr><td>Population</td><td>Dairy farms registered with dairy cooperatives and/or the Chiang Mai Provincial Livestock Office in three districts</td></tr>
+    <tr><td>Outcome</td><td>FMD outbreak at farm level: at least one animal with typical clinical signs (vesicles on feet, mammary glands, mouth) or laboratory-confirmed FMD virus</td></tr>
+    <tr><td>Place</td><td>Mae On, San Kamphaeng and San Sai districts, Chiang Mai Province</td></tr>
+    <tr><td>Time period</td><td>Outbreaks in 2016 (July–November); questionnaire survey February–June 2017</td></tr>
+    <tr><td>Comparison</td><td>140 outbreak farms vs 307 non-outbreak farms</td></tr>
+  </table></div>
+</section>
+
+<!-- TASK 2 -->
+<section id="t2">
+  <h2>Task 2. Type of study and study design</h2>
+  <div class="q"><b>Question:</b> (1) What is the type of study? (2) Explain the study design: how farms were selected, when the outcome and exposures were measured, and the direction (backward or forward).</div>
+  <h3>1. Type of study</h3>
+  <p>An observational <b>analytical</b> study: a <b>case-control study</b> at farm level.</p>
+  <h3>2. Study design</h3>
+  <ul>
+    <li><b>Selection:</b> farms were chosen <b>by outcome</b>. Cases = dairy farms with an FMD outbreak in 2016 (from official outbreak records of the Department of Livestock Development, DLD). Controls = registered dairy farms in the same three districts without an outbreak.</li>
+    <li><b>Timing:</b> the outcome had already happened (2016). Exposures were measured <b>afterwards</b>, by a face-to-face questionnaire (February–June 2017), and refer to the time before and during the outbreak.</li>
+    <li><b>Direction:</b> <b>backward</b> (retrospective): from the outcome (outbreak or not) back to the exposures.</li>
+    <li><b>Measure of association:</b> odds ratio (chi-square tests, then logistic regression).</li>
+  </ul>
+  <div class="note"><b>Also accepted</b>
+    Because <i>all</i> registered farms were interviewed, some students describe it as a retrospective cross-sectional survey. This is acceptable if you explain that exposure and outcome were not followed forward in time and that the odds ratio is the measure.</div>
+</section>
+
+<!-- TASK 3 -->
+<section id="t3">
+  <h2>Task 3. Dependent, independent and confounding variables</h2>
+  <div class="q"><b>Question:</b> Complete the table: dependent variable (name and how defined); independent variables (at least six); possible confounders and the reason they meet the three conditions in Section 2.2.</div>
+  <div class="tw"><table>
+    <tr><th style="width:24%">Role</th><th>Model answer</th></tr>
+    <tr><td>Dependent variable</td><td><b>status</b>: FMD outbreak on the farm (1 = outbreak farm, 0 = non-outbreak farm). Binary. Defined as at least one animal with typical clinical signs, or laboratory-confirmed FMD virus.</td></tr>
+    <tr><td>Independent variables (any six or more)</td><td>
+      <b>PurchaseWithoutQ</b> (bought a new cow without quarantine), <b>selling</b> (vehicle carrying stock entered the farm), <b>marketVisit</b> (visited cattle markets), <b>NearRoad</b> (near roadways), <b>slaughter</b> (within 5 km of a cattle abattoir), <b>together</b> (near shared grazing area), <b>contact</b> (neighbour farm within 500 m), <b>previous</b> (outbreak in previous year), <b>staff_training</b> (biosecurity training), <b>coorstaffV</b> (AI by more than one staff member). Others: faces, milk, water, waste, type, shared_equip; gender, age, expe, education, number of cattle.</td></tr>
+    <tr><td>Possible confounders (of PurchaseWithoutQ → outbreak) and reason</td><td>
+      <b>staff_training.</b> (1) Linked to the exposure: farms without trained staff more often bought cows without quarantine (60.6% vs 22.7% of farms in the dataset). (2) A risk factor for the outcome: training is linked to fewer outbreaks (OR 0.38, 95% CI 0.26–0.57). (3) Not on the causal path: training comes first and is not a result of buying cows without quarantine.<br><br>
+      <b>Number of cattle (herd size).</b> Larger herds buy more animals (exposure) and have more contacts and visitors (outcome); herd size is not caused by the purchase practice.<br><br>
+      <b>District / farming area.</b> Outbreak frequency and farm practices differed between districts; the paper kept district in the final model.<br><br>
+      <b>Farmer experience or education.</b> Knowledge of biosecurity affects buying practice and disease risk.</td></tr>
+  </table></div>
+  <div class="note"><b>Check each confounder against the three conditions (Section 2.2)</b>
+    (1) associated with the exposure; (2) a cause or predictor of the outcome, independent of the exposure; (3) not on the causal path between exposure and outcome. A factor on the causal path (for example <i>selling</i>, vehicles carrying stock, which may follow a purchase) is a mediator, not a confounder.</div>
+</section>
+
+<!-- TASK 4 -->
+<section id="t4">
+  <h2>Task 4. Sampling method and units</h2>
+  <div class="q"><b>Question:</b> (1) Target population. (2) Sampling method for districts, cases and controls (Section 6.1). (3) Sampling unit and epidemiological unit: same or different? (4) Clustering: name the levels (Section 7.2).</div>
+  <div class="tw"><table>
+    <tr><th style="width:24%">Item</th><th>Model answer</th></tr>
+    <tr><td>1. Target population</td><td>Dairy farms in the FMD-endemic area of northern Thailand (the results are meant to improve FMD prevention and control on dairy farms). The <b>study population</b> is the registered dairy farms in the three districts.</td></tr>
+    <tr><td>2. Sampling method</td><td>
+      <b>Districts:</b> non-probability, <b>purposive</b> selection. Three districts were chosen because they were close together and had many dairy farms.<br>
+      <b>Cases:</b> <b>complete enumeration (census)</b> of outbreak farms, identified from official DLD outbreak records (140 farms).<br>
+      <b>Controls:</b> all other registered dairy farms in the same districts (307 farms). There was no random selection; all farmers took part.</td></tr>
+    <tr><td>3. Sampling unit and epidemiological unit</td><td>Both are the <b>dairy farm</b> (the owner or manager answered the questionnaire). They are the <b>same</b>. A farm is a case if at least one animal had FMD. Cows are not analysed one by one.</td></tr>
+    <tr><td>4. Clustering</td><td>Yes. Farms are nested in <b>village → subdistrict → district</b> (dataset: villagename, subdistrict, district). Farms in the same district share outbreak history, control measures and exposure to risk areas, so they are more alike than farms from different districts. The paper put <b>district</b> in the final model (AIC 524.89 with district vs 529.14 without). With many clusters, use a mixed-effects model or GEE.</td></tr>
+  </table></div>
+</section>
+
+<!-- TASK 5 -->
+<section id="t5">
+  <h2>Task 5. Sample size</h2>
+  <div class="q"><b>Question:</b> Kelsey case-control formula; p₂ from the controls in the dataset (PurchaseWithoutQ = 1); OR 2.0; 95% confidence; 80% power; 1 control per case; finite population N = 450; 15% dropout. Compare scenarios A, B, C with the real study (140 cases, 307 controls).</div>
+  <h3>Step 1. Inputs</h3>
+  <p>Exposure among controls: <b>91 of 285</b> control farms = 0.319 → <b>p₂ = 0.32</b>. OR = 2, α = 0.05 (Z = 1.96), power 80% (Z = 0.84), r = 1.</p>
+  <h3>Step 2. Scenario A: basic calculation (1 control per case)</h3>
+  <div class="f">
+    <div>p₁ = OR × p₂ / [1 + p₂ (OR − 1)] = 2 × 0.32 / (1 + 0.32) = 0.4848</div>
+    <div>p̄ = (0.4848 + 0.32) / 2 = 0.4024, q̄ = 0.5976</div>
+    <div>n₁ = (Zα + Zβ)² × p̄ q̄ × (r + 1) / [r (p₁ − p₂)²]</div>
+    <div>= (1.96 + 0.84)² × 0.4024 × 0.5976 × 2 / (0.4848 − 0.32)² = 138.8 → <b>139 cases + 139 controls = 278</b></div>
+  </div>
+  <h3>Step 3. Scenario B: apply the finite population correction (N = 450, on the total)</h3>
+  <div class="f">
+    <div>n<sub>f</sub> = n₀ / [1 + (n₀ − 1) / N] = 278 / (1 + 277/450) = 172.1 → 173</div>
+    <div>Round up to equal groups: <b>87 cases + 87 controls = 174</b></div>
+  </div>
+  <h3>Step 4. Scenario C: add 15% dropout (after the finite population correction)</h3>
+  <div class="f">
+    <div>n = 174 / (1 − 0.15) = 204.7 → 205</div>
+    <div>Round up to equal groups: <b>103 cases + 103 controls = 206</b></div>
+  </div>
+  <div class="tw"><table class="t2">
+    <tr><th>Scenario</th><th>Cases</th><th>Controls</th><th>Total</th></tr>
+    <tr><td>A. Basic (1 control per case)</td><td>139</td><td>139</td><td>278</td></tr>
+    <tr><td>B. A with finite population correction (N = 450)</td><td>87</td><td>87</td><td>174</td></tr>
+    <tr><td>C. B with 15% dropout</td><td>103</td><td>103</td><td>206</td></tr>
+  </table></div>
+  <p class="m">Rounding differs between methods; answers within ±3 farms are acceptable. An online calculator (OpenEpi, case-control row) should agree with scenario A within 1–2 farms. The finite population step uses the approximation in Section 7.3 (applied to the total sample).</p>
+  <h3>Comparison with the real study and choice of scenario</h3>
+  <ul>
+    <li>The paper (140 cases, 307 controls = 447 farms) does not report a sample size calculation. All registered farms were interviewed (a census). The number of cases (140) is close to scenario A (139); the number of controls is about 2.2 per case.</li>
+    <li>The real study is larger than scenario C (206 farms) and so had more than enough power to detect OR = 2 at this exposure level.</li>
+    <li><b>Choice: scenario C.</b> The population is small (450 farms), so the finite population correction is justified and saves about 100 farms. Dividing by 0.85 protects the study against farmers who cannot be reached or refuse. 103 cases are available (165 outbreak farms in the dataset), so it is feasible.</li>
+    <li>Dropout: <b>divide by 0.85</b>; do not multiply by 1.15.</li>
+  </ul>
+</section>
+
+<!-- TASK 6 -->
+<section id="t6">
+  <h2>Task 6. Appropriate analysis methods</h2>
+  <div class="q"><b>Question:</b> (1) Odds ratio or risk ratio for this design, and why. (2) Two methods to deal with confounding in the analysis. (3) What “adjusted” means and why the adjusted OR differs from the crude OR. (4) Analysis for a continuous variable such as number of cattle.</div>
+  <ol>
+    <li><b>Odds ratio.</b> Farms were selected by outcome (cases and controls), so the investigator fixes the ratio of cases to controls and the risk of an outbreak cannot be estimated directly. The OR is valid for this design. Do not read it as a risk ratio: when the outcome is common (37% of farms in the dataset), the OR is further from 1 than the RR.</li>
+    <li><b>Methods to deal with confounding in the analysis:</b> (a) <b>stratified analysis</b> with the Mantel–Haenszel adjusted OR (one or a few confounders, Task 7B); (b) <b>multivariable logistic regression</b> (many confounders at once). (Restriction and matching are design-stage methods.)</li>
+    <li><b>“Adjusted”</b> means the association between the exposure and the outcome after the effect of the other factors in the analysis has been held constant (comparing farms that have the same values of the other factors). The adjusted OR differs from the crude OR because the crude OR mixes the effect of the exposure with the effect of the confounders. In the paper, the OR for buying cows without quarantine was 2.15 (crude) and 2.41 (adjusted). In the dataset, the crude OR 2.44 falls to 1.85 after adjustment for staff_training (Task 7B).</li>
+    <li><b>Continuous variable (for example number of cattle):</b> compare the mean between case and control farms with a <b>t-test</b> (Mann–Whitney or Wilcoxon test if skewed); or enter it into <b>logistic regression</b> as a continuous variable and report the OR per unit (for example per 10 cattle). Check that the relationship is roughly linear, or group it into categories (small, medium, large).</li>
+  </ol>
+  <div class="note"><b>Steps used in the paper</b>
+    Univariable chi-square test, p ≤ 0.2 for screening → collinearity check (chi-square) → multivariable logistic regression with backward selection by AIC → Hosmer–Lemeshow test (p = 0.08, good fit) → ROC curve (AUC = 0.67, fair discrimination).</div>
+</section>
+
+<!-- TASK 7 -->
+<section id="t7">
+  <h2>Task 7. Unadjusted (crude) odds ratios</h2>
+  <div class="q"><b>Question:</b> Make a 2×2 table for each of the ten risk factors; report OR, 95% CI and the p-value of the uncorrected (Pearson) chi-square test. Compare PurchaseWithoutQ with Table 2 (unadjusted 2.15) and Table 3 (adjusted 2.41) of the paper.</div>
+  <h3>2×2 table for PurchaseWithoutQ (example)</h3>
+  <div class="tw"><table class="t2">
+    <tr><th></th><th>Outbreak farms (cases)</th><th>Non-outbreak farms (controls)</th><th>Total</th></tr>
+    <tr><td>Bought a new cow without quarantine (exposed)</td><td>88</td><td>91</td><td>179</td></tr>
+    <tr><td>Did not (unexposed)</td><td>77</td><td>194</td><td>271</td></tr>
+    <tr><th style="text-align:left">Total</th><th>165</th><th>285</th><th>450</th></tr>
+  </table></div>
+  <div class="f">
+    <div>OR = (88 × 194) / (91 × 77) = 17,072 / 7,007 = <b>2.44</b></div>
+    <div>95% CI = exp[ ln 2.44 ± 1.96 × √(1/88 + 1/91 + 1/77 + 1/194) ] = <b>1.64–3.61</b></div>
+    <div>χ² = 19.98, 1 df, <b>p &lt; 0.001</b> (Pearson, no continuity correction)</div>
+  </div>
+  <p>Exposure among cases: 88/165 = 53.3%; among controls: 91/285 = 31.9%.</p>
+  <h3>All ten risk factors</h3>
+  <div class="tw"><table class="t2">
+    <tr><th>Risk factor</th><th>a</th><th>b</th><th>c</th><th>d</th><th>OR</th><th>95% CI</th><th>χ²</th><th>p</th></tr>
+<tr class="hl"><td><b>PurchaseWithoutQ</b><br><span class="m">Bought a new cow without quarantine</span></td><td>88</td><td>91</td><td>77</td><td>194</td><td class="sig">2.44</td><td>1.64–3.61</td><td>19.98</td><td class="sig">&lt;0.001</td></tr>
+<tr><td><b>previous</b><br><span class="m">FMD outbreak in the previous year</span></td><td>87</td><td>70</td><td>78</td><td>215</td><td class="sig">3.43</td><td>2.28–5.15</td><td>36.49</td><td class="sig">&lt;0.001</td></tr>
+<tr><td><b>NearRoad</b><br><span class="m">Farm near roadways</span></td><td>106</td><td>142</td><td>59</td><td>143</td><td class="sig">1.81</td><td>1.22–2.68</td><td>8.78</td><td class="sig">0.003</td></tr>
+<tr><td><b>contact</b><br><span class="m">Neighbour farm within 500 m</span></td><td>90</td><td>114</td><td>75</td><td>171</td><td class="sig">1.80</td><td>1.22–2.65</td><td>8.92</td><td class="sig">0.003</td></tr>
+<tr><td><b>slaughter</b><br><span class="m">Within 5 km of a cattle abattoir</span></td><td>38</td><td>45</td><td>127</td><td>240</td><td>1.60</td><td>0.99–2.59</td><td>3.64</td><td>0.056</td></tr>
+<tr><td><b>together</b><br><span class="m">Near shared grazing area (10 km)</span></td><td>90</td><td>137</td><td>75</td><td>148</td><td>1.30</td><td>0.88–1.90</td><td>1.75</td><td>0.186</td></tr>
+<tr><td><b>selling</b><br><span class="m">Vehicle carrying stock/cows entered farm</span></td><td>104</td><td>146</td><td>61</td><td>139</td><td class="sig">1.62</td><td>1.10–2.40</td><td>5.90</td><td class="sig">0.015</td></tr>
+<tr><td><b>marketVisit</b><br><span class="m">Visited cattle markets before outbreak</span></td><td>109</td><td>121</td><td>56</td><td>164</td><td class="sig">2.64</td><td>1.77–3.93</td><td>23.30</td><td class="sig">&lt;0.001</td></tr>
+<tr><td><b>coorstaffV</b><br><span class="m">AI service with more than 1 staff member</span></td><td>59</td><td>144</td><td>106</td><td>141</td><td class="sig">0.55</td><td>0.37–0.81</td><td>9.21</td><td class="sig">0.002</td></tr>
+<tr><td><b>staff_training</b><br><span class="m">Staff had biosecurity training</span></td><td>66</td><td>181</td><td>99</td><td>104</td><td class="sig">0.38</td><td>0.26–0.57</td><td>23.32</td><td class="sig">&lt;0.001</td></tr>
+  </table></div>
+  <p class="m">a = exposed cases, b = exposed controls, c = unexposed cases, d = unexposed controls. χ² = Pearson, 1 df, uncorrected. Bold = p &lt; 0.05. Excel: <code>=COUNTIFS(status_col,1,exposure_col,1)</code> gives a; change the criteria for b, c and d. Epitools or OpenEpi may give slightly different CIs if they use a different method (Woolf, exact); small differences are acceptable.</p>
+  <ul>
+    <li><b>Risk factors (OR &gt; 1, p &lt; 0.05):</b> previous outbreak, marketVisit, PurchaseWithoutQ, NearRoad, contact, selling.</li>
+    <li><b>Protective factors (OR &lt; 1, p &lt; 0.05):</b> staff_training, coorstaffV.</li>
+    <li><b>Not significant:</b> slaughter (borderline, OR 1.60, 95% CI 0.99–2.59, p = 0.056) and together.</li>
+  </ul>
+  <h3>Comparison with the paper (PurchaseWithoutQ)</h3>
+  <div class="card">
+    <p>Paper: unadjusted OR 2.15 (95% CI 1.29–3.57, Table 2); adjusted OR 2.41 (95% CI 1.45–4.05, Table 3). Dataset: crude OR 2.44 (1.64–3.61).</p>
+    <p><b>Why they differ:</b> (1) The dataset is <b>simulated</b>: different farms and a different number of cases and controls, so the estimates are similar but not the same. (2) In the paper, the <b>adjusted</b> OR (2.41) is from a multivariable model that controls for other factors (abattoir distance, shared grazing, vaccination by cooperative staff, previous outbreak, district). The crude OR (2.15) ignores them. Confounding can move the crude OR away from or toward 1, so the two numbers differ.</p>
+  </div>
+</section>
+
+<!-- TASK 7B -->
+<section id="t7b">
+  <h2>Task 7B. Mantel–Haenszel adjusted odds ratio</h2>
+  <div class="q"><b>Question:</b> Adjust the association between PurchaseWithoutQ and FMD outbreak for <b>staff_training</b> (strata 0 and 1). Make the stratified 2×2 tables, run Mantel–Haenszel in Epitools, compare crude and MH ORs, check homogeneity, interpret and reflect.</div>
+
+  <h3>Step 1. Stratify</h3>
+  <div class="two">
+    <div>
+      <p><b>staff_training = 0</b> (no training)</p>
+      <div class="tw"><table class="t2">
+        <tr><th></th><th>Cases (status = 1)</th><th>Controls (status = 0)</th><th>Total</th></tr>
+        <tr><td>Exposed (PurchaseWithoutQ = 1)</td><td>66</td><td>57</td><td>123</td></tr>
+        <tr><td>Unexposed</td><td>33</td><td>47</td><td>80</td></tr>
+        <tr><th style="text-align:left">Total</th><th>99</th><th>104</th><th>203</th></tr>
+      </table></div>
+      <p>OR = <b>1.65</b> (95% CI 0.93–2.91) · farms with PurchaseWithoutQ = 1: <b>60.6%</b></p>
+    </div>
+    <div>
+      <p><b>staff_training = 1</b> (trained)</p>
+      <div class="tw"><table class="t2">
+        <tr><th></th><th>Cases (status = 1)</th><th>Controls (status = 0)</th><th>Total</th></tr>
+        <tr><td>Exposed (PurchaseWithoutQ = 1)</td><td>22</td><td>34</td><td>56</td></tr>
+        <tr><td>Unexposed</td><td>44</td><td>147</td><td>191</td></tr>
+        <tr><th style="text-align:left">Total</th><th>66</th><th>181</th><th>247</th></tr>
+      </table></div>
+      <p>OR = <b>2.16</b> (95% CI 1.15–4.07) · farms with PurchaseWithoutQ = 1: <b>22.7%</b></p>
+    </div>
+  </div>
+  <p>The two stratum ORs are similar in size (1.65 and 2.16), both above 1. Farms without trained staff much more often bought cows without quarantine (60.6% vs 22.7%), so staff_training is linked to the exposure.</p>
+
+  <h3>Step 2. Mantel–Haenszel (Epitools)</h3>
+  <div class="tw"><table>
+    <tr><th>Result</th><th>Value</th></tr>
+    <tr><td>MH adjusted OR (95% CI)</td><td><b>1.85</b> (1.21–2.83)</td></tr>
+    <tr><td>MH chi-square (1 df), p-value</td><td>χ² = 8.23, <b>p = 0.004</b></td></tr>
+    <tr><td>Homogeneity test: Woolf (χ², 1 df) or Breslow–Day</td><td>Woolf χ² = 0.39, <b>p = 0.53</b> · Breslow–Day χ² = 0.39, p = 0.53</td></tr>
+  </table></div>
+  <p class="m">Name the test you used (Woolf or Breslow–Day). The p-value is about 0.5 with either test. Epitools may show a slightly different MH confidence interval depending on the variance method.</p>
+
+  <h3>Step 3. Compare crude and MH odds ratios</h3>
+  <div class="f">
+    <div>Change = (crude OR − MH OR) / MH OR × 100 = (2.44 − 1.85) / 1.85 × 100 = <b>32%</b></div>
+  </div>
+  <p>The change is above the 10% rule of thumb, so <b>staff_training is a confounder</b>. It meets the conditions in Section 2.2: it is associated with the exposure (60.6% vs 22.7%), it is a risk factor for the outcome (crude OR 0.38) and it is not on the causal path. The crude OR was too high (positive confounding).</p>
+
+  <h3>Step 4. Check homogeneity (can the strata be pooled?)</h3>
+  <p>H₀: the OR is the same in both strata. p = 0.53 (&gt; 0.05): no evidence that the OR differs between strata, so the strata ORs (1.65 and 2.16) can be pooled and the MH OR is a valid summary. If p were &lt; 0.05, the effect would differ by stratum (effect modification) and you should report the stratum-specific ORs instead.</p>
+
+  <h3>Step 5. Interpretation (2–3 sentences)</h3>
+  <div class="good"><b>Model answer</b>
+    After adjusting for staff_training, the odds of an FMD outbreak were 1.85 times higher (95% CI 1.21–2.83; p = 0.004) on farms that bought a new cow without quarantine than on farms that did not. The crude OR (2.44) overstated the association because farms without trained staff were more likely to skip quarantine and also had more outbreaks. The OR is similar in both strata (p = 0.53), so one adjusted estimate is appropriate; the association is still significant after adjustment.</div>
+
+  <h3>Step 6. Reflection</h3>
+  <ul>
+    <li><b>Why MH adjusts only one or a few factors:</b> each extra confounder multiplies the number of strata (2 strata for one binary factor, 4 for two, 8 for three, …). The strata become small or empty, many have zero cells, and the estimate becomes unstable. Continuous confounders need grouping first.</li>
+    <li><b>For many factors at once:</b> use <b>multivariable logistic regression</b>. In the dataset, a multivariable model including district, herd size, previous outbreak, staff_training and other factors gives an adjusted OR of about 2.6 for PurchaseWithoutQ, so adjustment for staff_training alone does not capture all confounding. (You are not asked to do this analysis.)</li>
+  </ul>
+</section>
+
+<!-- TASK 8 -->
+<section id="t8">
+  <h2>Task 8. Interpret the results and make recommendations</h2>
+  <div class="q"><b>Question:</b> (1) Write a sentence that interprets the OR for the exposures. (2) Explain why the exposure may increase or decrease the chance of an FMD outbreak. (3) Write practical recommendations for farmers and DLD to prevent and control FMD, each linked to a result.</div>
+
+  <h3>1. Interpretation sentences</h3>
+  <ul>
+    <li><b>PurchaseWithoutQ (risk factor):</b> “The <b>odds</b> of an FMD outbreak were 2.4 times higher on farms that bought a new cow without following quarantine than on farms that did not (OR 2.44; 95% CI 1.64–3.61; p &lt; 0.001). The interval does not include 1, so the association is statistically significant.”</li>
+    <li><b>staff_training (protective factor):</b> “The odds of an FMD outbreak were about 62% lower on farms where staff had biosecurity training (OR 0.38; 95% CI 0.26–0.57; p &lt; 0.001).”</li>
+  </ul>
+  <div class="warn"><b>Say “odds”, not “risk”</b>
+    Farms were selected by outbreak status and the outbreak is common (37%), so the OR is larger than the RR would be. “2.4 times more likely” is not correct. An association is not proof of cause.</div>
+
+  <h3>2. Why the exposure may increase or decrease the chance of an outbreak</h3>
+  <div class="two">
+    <div class="card"><h4>Buying a cow without quarantine (↑)</h4>
+      <ul>
+        <li>FMD virus is highly contagious; one infected or incubating animal can introduce it into a susceptible herd.</li>
+        <li>A new cow can be incubating and can shed virus before clinical signs, so it may look healthy on arrival.</li>
+        <li>Some recovered cattle become carriers. Dealers mix cattle from different farms and markets without testing or quarantine (as described in the paper).</li>
+        <li>Without quarantine, the new cow immediately contacts resident cows, equipment and the milking routine.</li>
+      </ul></div>
+    <div class="card"><h4>Staff biosecurity training (↓)</h4>
+      <ul>
+        <li>Trained staff apply hygiene: clean boots and clothing, disinfect vehicles and equipment.</li>
+        <li>They recognise and report disease early and keep sick animals apart.</li>
+        <li>They are more likely to quarantine new cattle and to handle vaccines correctly (the paper links vaccination by non-official staff with higher risk).</li>
+      </ul></div>
+  </div>
+  <p><b>Other examples:</b> visiting cattle markets (OR 2.64) exposes farmers and clothing to infected animals; vehicles carrying stock (OR 1.62) and roadways (OR 1.81) carry virus between farms; a neighbour farm within 500 m (OR 1.80) allows spread by people, equipment and air.</p>
+  <div class="note"><b>Previous outbreak: the dataset and the paper differ</b>
+    In the dataset a previous outbreak is a risk factor (OR 3.43, 95% CI 2.28–5.15). In the paper it was protective (OR 0.44), explained by herd immunity and better biosecurity after an outbreak. The dataset is simulated. In real life either direction is possible, so each result needs a biological explanation.</div>
+
+  <h3>3. Recommendations linked to results</h3>
+  <div class="tw"><table>
+    <tr><th style="width:32%">Result</th><th>Recommendation</th></tr>
+    <tr><td><b>For farmers</b></td><td></td></tr>
+    <tr><td>Bought without quarantine, OR 2.44</td><td>Keep every new animal in a separate pen for at least 14 days; check it daily; ask for the origin and vaccination records; do not mix with the herd until cleared.</td></tr>
+    <tr><td>Visited cattle markets, OR 2.64</td><td>Avoid bringing animals back from markets. Change and wash clothes and boots, and disinfect vehicles, after any market visit.</td></tr>
+    <tr><td>Vehicles carrying stock, OR 1.62; near roadways, OR 1.81; neighbour within 500 m, OR 1.80</td><td>Control the farm gate: disinfection point for vehicles, use a farm-owned vehicle for animal transport, keep a visitor record, and limit shared equipment with neighbours.</td></tr>
+    <tr><td><b>For DLD and cooperatives</b></td><td></td></tr>
+    <tr><td>Staff biosecurity training, OR 0.38 (protective)</td><td>Provide biosecurity training for farm staff (quarantine, hygiene, early reporting, correct vaccine handling) and check practice by follow-up visits.</td></tr>
+    <tr><td>Bought without quarantine, OR 2.44</td><td>Promote movement records and traceability for cattle dealers; require health checks before movement; enforce quarantine at the destination farm.</td></tr>
+    <tr><td>Previous outbreak (dataset, OR 3.43)</td><td>Follow up farms with a past outbreak: review biosecurity and vaccination quality and monitor for re-introduction.</td></tr>
+  </table></div>
+
+  <h3>Limitations to mention</h3>
+  <p>Case-control data: exposure and outbreak timing cannot always be separated, and the OR is not the RR. Recall bias (the authors report 2–11 months of recall and no logbooks). Unmeasured confounding. Only registered farms were included. Many variables were tested, so some significant results may be chance. Farm-level results do not describe individual cows. The dataset is simulated.</p>
+</section>
+
+<footer>Module 2 · Planning epidemiological studies, sampling and sample size · Exercise answers. Paper: Sansamur C, Arjkumpa O, Charoenpanyanet A, Punyapornwithaya V. <i>Animals</i> 2020; 10(3):512.</footer>
+</div>
+</body>
+</html>

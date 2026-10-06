@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 2 · 7 Sample size</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div class="top"><button class="btn alt" id="menu" aria-label="Open contents">☰ Contents</button><b>Module 2</b></div>
+<nav class="side" id="side" aria-label="Contents"><div class="brand">Module 2</div><div class="sub">Planning studies, sampling &amp; sample size</div><div id="nav"><a href="index.html"><span class="n">0</span>Overview</a><a href="01-objective.html"><span class="n">1</span>1 Objective</a><a href="02-variables.html"><span class="n">2</span>2 Variables</a><a href="03-measurement.html"><span class="n">3</span>3 Measurement</a><a href="04-sampling-unit.html"><span class="n">4</span>4 Sampling unit</a><a href="05-study-design.html"><span class="n">5</span>5 Study design</a><a href="06-sampling-method.html"><span class="n">6</span>6 Sampling method</a><a href="07-sample-size.html" class="on" aria-current="page"><span class="n">7</span>7 Sample size</a><a href="08-evaluation.html"><span class="n">8</span>8 Evaluation</a><a href="09-exercise.html"><span class="n">9</span>9 Exercise</a><a href="10-further-reading.html"><span class="n">10</span>Further reading</a></div></nav>
+<main>
+<section id="s7">
+ <div class="kick">Step 7</div><h2>7. Sample size: choose the right calculation</h2>
+ <p>Different questions need different formulas. Write down the inputs first. <b>Always round sample sizes upward.</b></p>
+ <div class="tw"><table><tr><th>Input</th><th>Meaning</th></tr>
+ <tr><td>Confidence level</td><td>Commonly 95% (Z = 1.96)</td></tr><tr><td>Precision, d</td><td>Desired margin of error (half-width of CI)</td></tr>
+ <tr><td>Expected prevalence, p</td><td>From literature, pilot or surveillance</td></tr><tr><td>Standard deviation, σ</td><td>Expected variation in a continuous outcome</td></tr>
+ <tr><td>α and power</td><td>α = 0.05 (Z = 1.96); power 80% (Z = 0.84) or 90% (Z = 1.28)</td></tr>
+ <tr><td>Minimum important difference, Δ</td><td>Smallest difference worth detecting</td></tr>
+ <tr><td>Design adjustments</td><td>Clustering, finite population, missing data</td></tr></table></div>
+ <div class="tw"><table><tr><th>Confidence / power</th><th>Z value</th></tr><tr><td>90% confidence (two-sided)</td><td>1.645</td></tr><tr><td>95% confidence (two-sided)</td><td>1.960</td></tr><tr><td>99% confidence (two-sided)</td><td>2.576</td></tr><tr><td>80% power</td><td>0.842</td></tr><tr><td>90% power</td><td>1.282</td></tr></table></div>
+ <div class="tip"><b>Always round up</b>A raw n of 245.86 becomes 246 – never 245. Rounding down means the design falls short of the stated confidence, precision or power.</div>
+ <h3 id="s7-1">7.1 Formulas and online calculators</h3>
+ <p>The table gives the formula for each type of study and links to online calculators. Choose the row that matches your objective, then check your hand calculation with an online calculator. Unless stated otherwise: Z<sub>1−α/2</sub> = 1.96 (95% confidence or two-sided α = 0.05) and Z<sub>1−β</sub> = 0.84 (80% power). Always round up.</p>
+ <div class="tw"><table><tr><th>No.</th><th>Purpose</th><th>Formula</th><th><span class="ci"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="2.5"/><rect x="8" y="5.5" width="8" height="3.5" rx=".8"/><circle cx="8.8" cy="13" r=".6" fill="currentColor"/><circle cx="12" cy="13" r=".6" fill="currentColor"/><circle cx="15.2" cy="13" r=".6" fill="currentColor"/><circle cx="8.8" cy="16" r=".6" fill="currentColor"/><circle cx="12" cy="16" r=".6" fill="currentColor"/><circle cx="15.2" cy="16" r=".6" fill="currentColor"/><circle cx="8.8" cy="19" r=".6" fill="currentColor"/><circle cx="12" cy="19" r=".6" fill="currentColor"/><circle cx="15.2" cy="19" r=".6" fill="currentColor"/></svg></span> Online calculators</th></tr><tr><td>1</td><td>Estimate a single mean</td><td>n = (Z σ / d)²</td><td><a href="https://epitools.ausvet.com.au/onemean" target="_blank" rel="noopener">Epitools – Single mean</a></td></tr><tr><td>2</td><td>Estimate a single proportion (prevalence)</td><td>n = Z² p(1 – p) / d²</td><td><a href="https://www.openepi.com/SampleSize/SSPropor.htm" target="_blank" rel="noopener">OpenEpi – Proportion</a><br><a href="https://epitools.ausvet.com.au/oneproportion" target="_blank" rel="noopener">Epitools – Single proportion</a></td></tr><tr><td>3</td><td>Compare two means</td><td>n per group = 2 (Z<sub>1−α/2</sub> + Z<sub>1−β</sub>)² σ² / Δ²</td><td><a href="https://www.openepi.com/SampleSize/SSMean.htm" target="_blank" rel="noopener">OpenEpi – Mean difference</a><br><a href="https://epitools.ausvet.com.au/twomeansone" target="_blank" rel="noopener">Epitools – Two means</a></td></tr><tr><td>4</td><td>Compare two proportions (Fleiss, uncorrected)</td><td>n per group = [Z<sub>1−α/2</sub> √(2p̄q̄) + Z<sub>1−β</sub> √(p₁q₁ + p₂q₂)]² / (p₁ – p₂)²<br>p̄ = (p₁ + p₂) / 2</td><td><a href="https://www.openepi.com/SampleSize/SSCohort.htm" target="_blank" rel="noopener">OpenEpi – Cohort/RCT (“Fleiss” row)</a><br><a href="https://epitools.ausvet.com.au/twoproportions" target="_blank" rel="noopener">Epitools – Two proportions</a></td></tr><tr><td>5</td><td>Cohort study (Kelsey)</td><td>n₁ = (Z<sub>1−α/2</sub> + Z<sub>1−β</sub>)² p̄ q̄ (r + 1) / [r (p₁ – p₂)²]<br>p̄ = (p₁ + r p₂) / (r + 1); n₂ = r n₁<br>p = risk of disease; r = unexposed per exposed</td><td><a href="https://www.openepi.com/SampleSize/SSCohort.htm" target="_blank" rel="noopener">OpenEpi – Cohort/RCT (“Kelsey” row)</a><br><a href="https://epitools.ausvet.com.au/cohortss" target="_blank" rel="noopener">Epitools – Cohort study</a></td></tr><tr><td>6</td><td>Case-control study (Kelsey)</td><td>p₁ = OR p₂ / [1 + p₂ (OR – 1)]<br>n₁ = (Z<sub>1−α/2</sub> + Z<sub>1−β</sub>)² p̄ q̄ (r + 1) / [r (p₁ – p₂)²]<br>p̄ = (p₁ + r p₂) / (r + 1); n₂ = r n₁<br>p = proportion exposed; r = controls per case</td><td><a href="https://www.openepi.com/SampleSize/SSCC.htm" target="_blank" rel="noopener">OpenEpi – Unmatched case-control (“Kelsey” row)</a><br><a href="https://epitools.ausvet.com.au/casecontrolss" target="_blank" rel="noopener">Epitools – Case-control study</a></td></tr></table></div>
+ <p style="font-size:14.5px"><b>Symbols.</b> n = sample size; d = precision (half-width of the confidence interval); σ = standard deviation; Δ = smallest difference worth detecting; p = proportion (risk of disease in rows 4–5; proportion exposed in row 6), with q = 1 – p; p̄ = average proportion; r = ratio of the second group to the first (unexposed : exposed, or controls : cases); OR = target odds ratio. Row 4 uses equal group sizes.</p>
+ <div class="tip"><b>Tips for using online calculators</b>
+ <ul style="margin:4px 0 0;padding-left:20px"><li>OpenEpi reports three methods side by side for cohort and case-control designs: Kelsey, Fleiss and Fleiss with continuity correction. Read the row that matches the method you used.</li>
+ <li>Calculators may differ from hand calculation by 1–2 animals because of rounding of Z values, and some tools use other methods (e.g. Epitools for cohort and case-control). State the tool and method in your report.</li>
+ <li>OpenEpi enters percentages (e.g. 20) rather than proportions (0.20). Check the input format of each tool.</li>
+ <li>Apply the adjustments in Sections 7.2–7.5 (design effect, finite population correction, expected losses) after the basic calculation. The OpenEpi Proportion module can include the design effect and population size directly.</li></ul></div>
+ <h3 id="s7-2">7.2 Clustering and the design effect</h3>
+ <p>Animals in the same herd, pen or village share feed, housing and pathogens, so each extra animal from the same herd adds less information.</p>
+ <div class="f">DEFF = 1 + (m − 1) ρ &nbsp;&nbsp; n<sub>cluster</sub> = n₀ × DEFF &nbsp;&nbsp; clusters = n<sub>cluster</sub> / m</div>
+ <table><tr><th>Symbol</th><th>Meaning</th></tr><tr><td>m</td><td>Average number of animals sampled per cluster (e.g. per farm)</td></tr><tr><td>ρ (rho)</td><td>Intracluster correlation: how similar animals in the same cluster are (0 = not alike, 1 = identical)</td></tr><tr><td>n₀</td><td>Sample size for simple random sampling</td></tr></table>
+ <p>Infectious diseases often have ρ of 0.1–0.3 or more.<br>Production traits such as milk yield often have ρ of about 0.05–0.2.<br>Take ρ from similar published studies or pilot data.</p>
+ <div class="card"><div class="row"><div><label>n₀ (simple random)</label><input type="number" id="dk_n" value="246"></div><div><label>Cows per farm, m</label><input type="number" id="dk_m" value="20"></div><div><label>ρ</label><input type="number" id="dk_r" value="0.1" step="0.01"></div></div><div class="res" id="dk_o" aria-live="polite"></div></div>
+ <p>Worked example: n₀ = 246, m = 20, ρ = 0.10 gives DEFF 2.9, 714 cows, 36 farms (720 cows). With m = 10: 468 cows, 47 farms. Try both above; fewer cows per farm needs fewer animals but more farm visits, so balance with cost.</p>
+
+ <h3 id="s7-3">7.3 Finite population correction</h3>
+ <p>If the sample is a large share of a small population, you need fewer animals. Apply when n₀ is more than about 5–10% of N. For cluster sampling, apply it to the number of farms.</p>
+ <div class="f">n<sub>f</sub> = n₀ / [ 1 + (n₀ − 1) / N ]</div>
+ <div class="card"><div class="row"><div><label>n₀</label><input type="number" id="fp_n" value="246"></div><div><label>Population N</label><input type="number" id="fp_N" value="450"></div></div><div class="res" id="fp_o" aria-live="polite"></div></div>
+ <p>Worked example: 450 dairy farms, p = 0.20, ±5%, 95%: n₀ = 246 → n<sub>f</sub> = 160 (86 fewer farms). With N = 10,000 the saving is only 5, so ignore it.</p>
+
+ <h3 id="s7-4">7.4 Missing data and loss to follow-up</h3>
+ <div class="f">n<sub>adj</sub> = n / (1 − L)</div>
+ <div class="card"><div class="row"><div><label>Required usable n</label><input type="number" id="ls_n" value="246"></div><div><label>Expected loss L (%)</label><input type="number" id="ls_L" value="15"></div></div><div class="res" id="ls_o" aria-live="polite"></div></div>
+
+ <p>Worked example: you need 246 usable samples and expect 15% loss. Correct: 246 / 0.85 = 289.4, round up to <b>290</b> (290 × 0.85 = 246.5 usable). Adding 15% instead gives 283, of which only 240.6 are usable, about 6 short.<br>Estimate L from pilot data, earlier studies or the laboratory failure rate. Loss related to the outcome (e.g. the sickest calves die before sampling) biases the result; more animals do not fix that.</p>
+ <h3>7.5 Putting the adjustments together</h3>
+ <div class="card"><div class="row"><div><label>n₀</label><input type="number" id="ad_n" value="246"></div><div><label>m (blank = no clustering)</label><input type="number" id="ad_m" value=""></div><div><label>ρ</label><input type="number" id="ad_r" value="0.1" step="0.01"></div><div><label>N (blank = infinite)</label><input type="number" id="ad_N" value=""></div><div><label>Loss % </label><input type="number" id="ad_L" value=""></div></div><div class="res" id="ad_o" aria-live="polite"></div></div>
+ <ol><li>Calculate basic n₀ (7.1).</li><li>Multiply by DEFF if sampling clusters (7.2).</li><li>Apply the FPC if the sample is a large share of N (7.3).</li><li>Divide by (1 − L) for expected loss (7.4).</li><li>Round up at the end, not at each step.</li></ol>
+ <p>These are introductory approximations; unequal cluster sizes need a more detailed method.</p>
+ <div id="q7"></div>
+</section>
+<div class="pn"><a href="06-sampling-method.html">← 6 Sampling method</a><a href="08-evaluation.html">8 Evaluation →</a></div>
+</main>
+<script src="app.js"></script>
+<script>
+quiz('q7',[
+ {q:'A raw n of 245.86 should be…',o:['245','246','250 only'],a:1,w:'Always round up.'},
+ {q:'n = 246 usable samples, 15% loss. Correct n?',o:['283 (add 15%)','290 (divide by 0.85)','246'],a:1,w:'246 / 0.85 = 289.4 → 290. Adding 15% leaves you short.'},
+ {q:'ρ is high. What is more efficient?',o:['More animals per farm','More farms with fewer animals each','No change'],a:1,w:'Extra animals from the same farm add little information.'},
+ {q:'When can the FPC be ignored?',o:['n₀ is well under 5% of N','Always','Only for means'],a:0,w:'With N = 10,000 and n₀ = 246 the saving is 5 farms.'}]);
+function dk(){const n=num('dk_n'),m=num('dk_m'),r=num('dk_r'),D=1+(m-1)*r,nc=up(n*D),farms=up(nc/m);$('#dk_o').innerHTML=`DEFF = 1 + (${m}−1) × ${r} = <b>${fx(D,2)}</b><br>n<sub>cluster</sub> = ${n} × ${fx(D,2)} = ${fx(n*D,1)} → <b>${nc} cows</b>; farms = ${nc}/${m} = ${fx(nc/m,1)} → <b>${farms} farms</b> (${farms*m} cows)<br>Effective sample size = ${nc} / ${fx(D,2)} = ${fx(nc/D,0)}: the information of ${fx(nc/D,0)} independent cows.`}
+['dk_n','dk_m','dk_r'].forEach(i=>$('#'+i).oninput=dk);dk();
+function fp(){const n=num('fp_n'),N=num('fp_N'),f=n/(1+(n-1)/N);$('#fp_o').innerHTML=`n₀/N = ${fx(n/N*100,1)}% ${n/N>.05?'(above 5–10%: apply FPC)':'(small: FPC changes little)'}<br>n<sub>f</sub> = ${n} / [1 + ${n-1}/${N}] = ${fx(f,1)} → <b>${up(f)}</b> (saves ${n-up(f)})`}
+['fp_n','fp_N'].forEach(i=>$('#'+i).oninput=fp);fp();
+function ls(){const n=num('ls_n'),Lo=num('ls_L')/100,a=n/(1-Lo),w=n*(1+Lo);$('#ls_o').innerHTML=`Correct: ${n} / (1 − ${Lo}) = ${fx(a,1)} → <b>${up(a)}</b>; usable ≈ ${fx(up(a)*(1-Lo),1)}<br>Mistake: ${n} × (1 + ${Lo}) = ${up(w)} → usable ≈ ${fx(up(w)*(1-Lo),1)} (${up(w)*(1-Lo)<n?'short by '+fx(n-up(w)*(1-Lo),1):'enough'})`}
+['ls_n','ls_L'].forEach(i=>$('#'+i).oninput=ls);ls();
+function ad(){let n=num('ad_n');const m=num('ad_m'),r=num('ad_r'),N=num('ad_N'),Lo=num('ad_L')/100;const s=[`Basic n₀ = ${n}`];
+ if(m>0&&r>=0){const D=1+(m-1)*r;n*=D;s.push(`× DEFF ${fx(D,2)} → ${fx(n,1)}`)}
+ if(N>0){n=n/(1+(n-1)/N);s.push(`FPC with N = ${N} → ${fx(n,1)}`)}
+ if(Lo>0){n=n/(1-Lo);s.push(`÷ (1 − ${Lo}) → ${fx(n,1)}`)}
+ const t=up(n);$('#ad_o').innerHTML=`<ul class="steps" style="margin:0 0 6px">${s.map(x=>`<li>${x}</li>`).join('')}</ul>Round up once at the end: <span class="big">${t}</span>${m>0?` (${up(t/m)} clusters of ${m} = ${up(t/m)*m})`:''}`}
+['ad_n','ad_m','ad_r','ad_N','ad_L'].forEach(i=>$('#'+i).oninput=ad);ad();
+
+
+
+</script>
+</body></html>

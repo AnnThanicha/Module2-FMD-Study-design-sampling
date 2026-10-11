@@ -67,7 +67,7 @@ footer{padding:26px 0;color:var(--muted);font-size:14px}
 <!-- TASK 1 -->
 <section id="t1">
   <h2>Task 1. Objective of the study</h2>
-  <div class="q"><b>Question:</b> Write the objective of this study, including the population, outcome, place, time period and comparison (Section 1.1).</div>
+  <div class="q"><b>Question:</b> Read the abstract and the end of the Introduction. Write the objective of this study, including the population, outcome, place, time period and comparison (Section 1.1).</div>
   <div class="card">
     <h4>Model objective</h4>
     <p>“To quantify the farm-level risk factors associated with FMD outbreaks in dairy farms registered in Mae On, San Kamphaeng and San Sai districts, Chiang Mai Province, northern Thailand, in 2016, by comparing outbreak farms with non-outbreak farms, using odds ratios with 95% confidence intervals.”</p>
@@ -102,7 +102,7 @@ footer{padding:26px 0;color:var(--muted);font-size:14px}
 <!-- TASK 3 -->
 <section id="t3">
   <h2>Task 3. Dependent, independent and confounding variables</h2>
-  <div class="q"><b>Question:</b> Complete the table: dependent variable (name and how defined); independent variables (at least six); possible confounders and the reason they meet the three conditions in Section 2.2.</div>
+  <div class="q"><b>Question:</b> Complete the table (use the variable descriptions): dependent variable (name and how defined); independent variables (at least six); possible confounders and the reason they meet the three conditions in Section 2.2.</div>
   <div class="tw"><table>
     <tr><th style="width:24%">Role</th><th>Model answer</th></tr>
     <tr><td>Dependent variable</td><td><b>status</b>: FMD outbreak on the farm (1 = outbreak farm, 0 = non-outbreak farm). Binary. Defined as at least one animal with typical clinical signs, or laboratory-confirmed FMD virus.</td></tr>
@@ -121,7 +121,7 @@ footer{padding:26px 0;color:var(--muted);font-size:14px}
 <!-- TASK 4 -->
 <section id="t4">
   <h2>Task 4. Sampling method and units</h2>
-  <div class="q"><b>Question:</b> (1) Target population. (2) Sampling method for districts, cases and controls (Section 6.1). (3) Sampling unit and epidemiological unit: same or different? (4) Clustering: name the levels (Section 7.2).</div>
+  <div class="q"><b>Question:</b> (1) Target population. (2) Sampling method for districts, cases and controls (Section 6.1). (3) Sampling unit and epidemiological unit: same or different? (4) Clustering: name the levels (Section 7.2). (5) If you could choose your own sampling method, which would you choose and why? (Section 6.1)</div>
   <div class="tw"><table>
     <tr><th style="width:24%">Item</th><th>Model answer</th></tr>
     <tr><td>1. Target population</td><td>Dairy farms in the FMD-endemic area of northern Thailand (the results are meant to improve FMD prevention and control on dairy farms). The <b>study population</b> is the registered dairy farms in the three districts.</td></tr>
@@ -131,13 +131,14 @@ footer{padding:26px 0;color:var(--muted);font-size:14px}
       <b>Controls:</b> all other registered dairy farms in the same districts (307 farms). There was no random selection; all farmers took part.</td></tr>
     <tr><td>3. Sampling unit and epidemiological unit</td><td>Both are the <b>dairy farm</b> (the owner or manager answered the questionnaire). They are the <b>same</b>. A farm is a case if at least one animal had FMD. Cows are not analysed one by one.</td></tr>
     <tr><td>4. Clustering</td><td>Yes. Farms are nested in <b>village → subdistrict → district</b> (dataset: villagename, subdistrict, district). Farms in the same district share outbreak history, control measures and exposure to risk areas, so they are more alike than farms from different districts. The paper put <b>district</b> in the final model (AIC 524.89 with district vs 529.14 without). With many clusters, use a mixed-effects model or GEE.</td></tr>
+    <tr><td>5. Your own sampling method</td><td>Your choice, with a reason. <b>Example:</b> keep all outbreak farms as cases (there are few), and select controls by <b>stratified random sampling</b> with district as the strata (probability-based, in proportion to the number of farms in each district). <b>Why:</b> random selection reduces selection bias and lets the results be generalised to the study population; stratifying by district makes sure all three districts are represented and handles clustering; it costs less than interviewing every farm. <b>Other acceptable answers:</b> simple random sampling of controls from the registered-farm list; matching controls to cases by district; census, if the farm list is small and the budget allows (no sampling error, but more cost and work). Any answer needs a reason that links to bias, cost or representativeness.</td></tr>
   </table></div>
 </section>
 
 <!-- TASK 5 -->
 <section id="t5">
   <h2>Task 5. Sample size</h2>
-  <div class="q"><b>Question:</b> Kelsey case-control formula; p₂ from the controls in the dataset (PurchaseWithoutQ = 1); OR 2.0; 95% confidence; 80% power; 1 control per case; finite population N = 450; 15% dropout. Compare scenarios A, B, C with the real study (140 cases, 307 controls).</div>
+  <div class="q"><b>Question:</b> Kelsey case-control formula; p₂ from the controls in the dataset (PurchaseWithoutQ = 1); OR 2.0; 95% confidence; 80% power; 1 control per case; finite population N = 450; 15% dropout (after the finite population correction). Fill in scenarios A, B and C; round up.</div>
   <h3>Step 1. Inputs</h3>
   <p>Exposure among controls: <b>91 of 285</b> control farms = 0.319 → <b>p₂ = 0.32</b>. OR = 2, α = 0.05 (Z = 1.96), power 80% (Z = 0.84), r = 1.</p>
   <h3>Step 2. Scenario A: basic calculation (1 control per case)</h3>
@@ -164,25 +165,18 @@ footer{padding:26px 0;color:var(--muted);font-size:14px}
     <tr><td>C. B with 15% dropout</td><td>103</td><td>103</td><td>206</td></tr>
   </table></div>
   <p class="m">Rounding differs between methods; answers within ±3 farms are acceptable. An online calculator (OpenEpi, case-control row) should agree with scenario A within 1–2 farms. The finite population step uses the approximation in Section 7.3 (applied to the total sample).</p>
-  <h3>Comparison with the real study and choice of scenario</h3>
-  <ul>
-    <li>The paper (140 cases, 307 controls = 447 farms) does not report a sample size calculation. All registered farms were interviewed (a census). The number of cases (140) is close to scenario A (139); the number of controls is about 2.2 per case.</li>
-    <li>The real study is larger than scenario C (206 farms) and so had more than enough power to detect OR = 2 at this exposure level.</li>
-    <li><b>Choice: scenario C.</b> The population is small (450 farms), so the finite population correction is justified and saves about 100 farms. Dividing by 0.85 protects the study against farmers who cannot be reached or refuse. 103 cases are available (165 outbreak farms in the dataset), so it is feasible.</li>
-    <li>Dropout: <b>divide by 0.85</b>; do not multiply by 1.15.</li>
-  </ul>
+  <p class="m">Dropout: <b>divide by 0.85</b>; do not multiply by 1.15. For reference, the real study interviewed 140 case farms and 307 control farms (all registered farms, no sample size calculation reported).</p>
 </section>
 
 <!-- TASK 6 -->
 <section id="t6">
   <h2>Task 6. Appropriate analysis methods</h2>
-  <div class="q"><b>Question:</b> (1) Odds ratio or risk ratio for this design, and why. (2) Two methods to deal with confounding in the analysis. (3) What “adjusted” means and why the adjusted OR differs from the crude OR. (4) Analysis for a continuous variable such as number of cattle.</div>
+  <div class="q"><b>Question:</b> (1) Odds ratio or risk ratio for this design, and why. (2) Two methods to deal with confounding in the analysis. (3) What “adjusted” means and why the adjusted OR differs from the crude OR.</div>
   <ol>
     <li><b>Odds ratio.</b> Farms were selected by outcome (cases and controls), so the investigator fixes the ratio of cases to controls and the risk of an outbreak cannot be estimated directly. The OR is valid for this design. Do not read it as a risk ratio: when the outcome is common (37% of farms in the dataset), the OR is further from 1 than the RR.</li>
     <li><b>Methods to deal with confounding in the analysis:</b> (a) <b>stratified analysis</b> with the Mantel–Haenszel adjusted OR (one or a few confounders, Task 7B); (b) <b>multivariable logistic regression</b> (many confounders at once). (Restriction and matching are design-stage methods.)</li>
     <li><b>“Adjusted”</b> means the association between the exposure and the outcome after the effect of the other factors in the analysis has been held constant (comparing farms that have the same values of the other factors). The adjusted OR differs from the crude OR because the crude OR mixes the effect of the exposure with the effect of the confounders. In the paper, the OR for buying cows without quarantine was 2.15 (crude) and 2.41 (adjusted). In the dataset, the crude OR 2.44 falls to 1.85 after adjustment for staff_training (Task 7B).</li>
-    <li><b>Continuous variable (for example number of cattle):</b> compare the mean between case and control farms with a <b>t-test</b> (Mann–Whitney or Wilcoxon test if skewed); or enter it into <b>logistic regression</b> as a continuous variable and report the OR per unit (for example per 10 cattle). Check that the relationship is roughly linear, or group it into categories (small, medium, large).</li>
-  </ol>
+      </ol>
   <div class="note"><b>Steps used in the paper</b>
     Univariable chi-square test, p ≤ 0.2 for screening → collinearity check (chi-square) → multivariable logistic regression with backward selection by AIC → Hosmer–Lemeshow test (p = 0.08, good fit) → ROC curve (AUC = 0.67, fair discrimination).</div>
 </section>
@@ -190,7 +184,7 @@ footer{padding:26px 0;color:var(--muted);font-size:14px}
 <!-- TASK 7 -->
 <section id="t7">
   <h2>Task 7. Unadjusted (crude) odds ratios</h2>
-  <div class="q"><b>Question:</b> Make a 2×2 table for each of the ten risk factors; report OR, 95% CI and the p-value of the uncorrected (Pearson) chi-square test. Compare PurchaseWithoutQ with Table 2 (unadjusted 2.15) and Table 3 (adjusted 2.41) of the paper.</div>
+  <div class="q"><b>Question:</b> Make a 2×2 table for each of the ten risk factors; report OR, 95% CI and the p-value of the uncorrected (Pearson) chi-square test.</div>
   <h3>2×2 table for PurchaseWithoutQ (example)</h3>
   <div class="tw"><table class="t2">
     <tr><th></th><th>Outbreak farms (cases)</th><th>Non-outbreak farms (controls)</th><th>Total</th></tr>
@@ -224,17 +218,12 @@ footer{padding:26px 0;color:var(--muted);font-size:14px}
     <li><b>Protective factors (OR &lt; 1, p &lt; 0.05):</b> staff_training, coorstaffV.</li>
     <li><b>Not significant:</b> slaughter (borderline, OR 1.60, 95% CI 0.99–2.59, p = 0.056) and together.</li>
   </ul>
-  <h3>Comparison with the paper (PurchaseWithoutQ)</h3>
-  <div class="card">
-    <p>Paper: unadjusted OR 2.15 (95% CI 1.29–3.57, Table 2); adjusted OR 2.41 (95% CI 1.45–4.05, Table 3). Dataset: crude OR 2.44 (1.64–3.61).</p>
-    <p><b>Why they differ:</b> (1) The dataset is <b>simulated</b>: different farms and a different number of cases and controls, so the estimates are similar but not the same. (2) In the paper, the <b>adjusted</b> OR (2.41) is from a multivariable model that controls for other factors (abattoir distance, shared grazing, vaccination by cooperative staff, previous outbreak, district). The crude OR (2.15) ignores them. Confounding can move the crude OR away from or toward 1, so the two numbers differ.</p>
-  </div>
 </section>
 
 <!-- TASK 7B -->
 <section id="t7b">
   <h2>Task 7B. Mantel–Haenszel adjusted odds ratio</h2>
-  <div class="q"><b>Question:</b> Adjust the association between PurchaseWithoutQ and FMD outbreak for <b>staff_training</b> (strata 0 and 1). Make the stratified 2×2 tables, run Mantel–Haenszel in Epitools, compare crude and MH ORs, check homogeneity, interpret and reflect.</div>
+  <div class="q"><b>Question:</b> Adjust the association between PurchaseWithoutQ and FMD outbreak for <b>staff_training</b> (strata 0 and 1). Stratify (OR and % of farms with PurchaseWithoutQ = 1 per stratum); calculate MH in Epitools (MH OR, p-value, homogeneity test); compare crude and MH ORs; check homogeneity; interpret in 2–3 sentences; reflect.</div>
 
   <h3>Step 1. Stratify</h3>
   <div class="two">
@@ -259,14 +248,22 @@ footer{padding:26px 0;color:var(--muted);font-size:14px}
       <p>OR = <b>2.16</b> (95% CI 1.15–4.07) · farms with PurchaseWithoutQ = 1: <b>22.7%</b></p>
     </div>
   </div>
+  <div class="tw"><table class="t2">
+    <tr><th>Stratum</th><th>OR</th><th>95% CI</th><th>% of farms with PurchaseWithoutQ = 1</th></tr>
+    <tr><td>staff_training = 0</td><td>1.65</td><td>0.93–2.91</td><td>60.6%</td></tr>
+    <tr><td>staff_training = 1</td><td>2.16</td><td>1.15–4.07</td><td>22.7%</td></tr>
+    <tr><td>Crude (all farms)</td><td>2.44</td><td>1.64–3.61</td><td>39.8% (179/450)</td></tr>
+  </table></div>
   <p>The two stratum ORs are similar in size (1.65 and 2.16), both above 1. Farms without trained staff much more often bought cows without quarantine (60.6% vs 22.7%), so staff_training is linked to the exposure.</p>
 
   <h3>Step 2. Mantel–Haenszel (Epitools)</h3>
   <div class="tw"><table>
     <tr><th>Result</th><th>Value</th></tr>
+    <tr><td>Crude OR (from Task 7)</td><td>2.44 (1.64–3.61)</td></tr>
     <tr><td>MH adjusted OR (95% CI)</td><td><b>1.85</b> (1.21–2.83)</td></tr>
-    <tr><td>MH chi-square (1 df), p-value</td><td>χ² = 8.23, <b>p = 0.004</b></td></tr>
+    <tr><td>p-value for the MH OR (MH chi-square, 1 df)</td><td>χ² = 8.23, <b>p = 0.004</b></td></tr>
     <tr><td>Homogeneity test: Woolf (χ², 1 df) or Breslow–Day</td><td>Woolf χ² = 0.39, <b>p = 0.53</b> · Breslow–Day χ² = 0.39, p = 0.53</td></tr>
+    <tr><td>Change from crude to MH OR (%)</td><td><b>32%</b></td></tr>
   </table></div>
   <p class="m">Name the test you used (Woolf or Breslow–Day). The p-value is about 0.5 with either test. Epitools may show a slightly different MH confidence interval depending on the variance method.</p>
 
